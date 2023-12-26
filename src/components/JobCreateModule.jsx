@@ -2,7 +2,7 @@ import JobCreate from "./job-create/JobCreate";
 
 const JobCreateModule = (props) => (
     <div className={"job-create-task-module"}>
-        <JobCreate/>
+        <JobCreate onClose={props.onClose}/>
     </div>
 )
 

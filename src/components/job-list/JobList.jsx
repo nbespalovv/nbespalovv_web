@@ -1,17 +1,29 @@
 import JobItem from "./JobItem";
 import JobFilter from "./JobFilter";
+import {useEffect, useState} from "react";
 
-const JobList = (props) => (
-    <div className={"job-list"}>
-        <div className={"job-list-inner"}>
-            {props.items.map((item, i) => {
-                return (<JobItem state={item.state} color={item.color}>
-                    {item.title}
-                </JobItem>)
-            })}
-            <JobFilter/>
+const JobList = (props) => {
+
+    const [jobs, setJobs] = useState([...(JSON.parse(window.localStorage.getItem("jobs")) || [])])
+
+    useEffect(() => {
+        window.onstorage = () => {
+            setJobs(JSON.parse(window.localStorage.getItem("jobs")))
+        }
+    }, []);
+
+
+    return (
+        <div className={"job-list"}>
+            <div className={"job-list-inner"}>
+                {jobs.map((item, i) => {
+                    return (<JobItem state={item.category.name} color={item.category.color}>
+                        {item.description}
+                    </JobItem>)
+                })}
+                <JobFilter/>
+            </div>
         </div>
-    </div>
-)
-
+    )
+}
 export default JobList;
