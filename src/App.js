@@ -1,9 +1,13 @@
 import './App.css';
-import React from "react";
+import React, {useState} from "react";
 import JobModule from "./components/JobModule";
 import JobCategoriesModule from "./components/JobCategoriesModule";
+import JobCreateModule from "./components/JobCreateModule";
+import NewJobDialog from "./components/NewJobDialog";
 
 function App() {
+    const [isOpen, setOpen] = useState(false)
+
     return (
         <div className="App">
             <header>
@@ -14,11 +18,11 @@ function App() {
 
             <article>
                 <JobCategoriesModule/>
-                <JobModule/>
+                <JobModule onCreateTaskClick={() => setOpen(true)}/>
+                <NewJobDialog isOpen={isOpen} onClose={() => setOpen(false)}/>
             </article>
 
             <footer>
-
             </footer>
         </div>
     );

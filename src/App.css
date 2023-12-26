@@ -113,9 +113,7 @@ body {
 }
 
 .job-categories-title {
-    width: 105px;
     color: #FFF;
-    margin-top: 25px;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -140,6 +138,72 @@ body {
     background-color: #38938A;
 }
 
+.job-categories-title-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.job-create-task-module {
+    width: 500px;
+    height: 450px;
+    border-radius: 10px;
+    border: 2px solid #FFF;
+    background: #54BAB9;
+}
+.job-create-task-title-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.job-create-task-title {
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.job-input {
+    margin-top: 18px;
+    width: 420px;
+    height: 40px;
+    border-radius: 10px;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 8px;
+}
+
+.job-input-title {
+    width: 402px;
+    color: #858585;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    border: none;
+    outline: none;
+
+}
+
+.job-input-title:focus {
+    border: none;
+    outline: none;
+}
+
+.horizontal-line {
+    height: 1px;
+    width: 60px;
+    background-color: white;
+}
+
 article {
     display: flex;
     justify-content: center;
@@ -160,4 +224,11 @@ header {
 footer {
     display: flex;
     min-height: 250px;
+}
+
+.dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%) translateY(-50%);
 }
