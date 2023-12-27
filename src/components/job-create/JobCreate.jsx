@@ -72,7 +72,7 @@ const JobCreate = (props) => {
 
     return (
         <div className={"job-create-task-wrapper"}>
-            <JobCreateTitle>CREATE TASK</JobCreateTitle>
+            <JobCreateTitle>{props.editMode === null ? "CREATE TASK" : "EDIT TASK"}</JobCreateTitle>
             <JobInput onDescriptionChanged={setDescription} value={description}/>
             <JobCategoriesTitle>Categories</JobCategoriesTitle>
             <div className={"job-create-task-categories"}>

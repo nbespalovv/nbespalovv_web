@@ -1,5 +1,5 @@
 const JobCreateTitle = (props) => (
-    <span className={"job-create-task-title"}>CREATE TASK</span>
+    <span className={"job-create-task-title"}>{props.children}</span>
 )
 
 export default JobCreateTitle;
