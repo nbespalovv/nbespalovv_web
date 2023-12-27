@@ -7,6 +7,17 @@ import NewJobDialog from "./components/NewJobDialog";
 
 function App() {
     const [isOpen, setOpen] = useState(false)
+    const [editModeJobItem, setEditModeJobItem] = useState(null)
+
+    const editJob = (jobItem, jobId) => {
+        setEditModeJobItem(jobId)
+        setOpen(true)
+    }
+
+    const onDialogClose = () => {
+        setOpen(false)
+        setEditModeJobItem(null)
+    }
 
     return (
         <div className="App">
@@ -18,8 +29,8 @@ function App() {
 
             <article>
                 <JobCategoriesModule/>
-                <JobModule onCreateTaskClick={() => setOpen(true)}/>
-                <NewJobDialog isOpen={isOpen} onClose={() => setOpen(false)}/>
+                <JobModule onCreateTaskClick={() => setOpen(true)} onEditClick={(job, jobId) => editJob(job, jobId)}/>
+                <NewJobDialog isOpen={isOpen} onClose={() => onDialogClose()} editMode={editModeJobItem}/>
             </article>
 
             <footer>

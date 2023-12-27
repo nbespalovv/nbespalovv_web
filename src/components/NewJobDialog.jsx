@@ -8,7 +8,7 @@ const NewJobDialog = (props) => {
 
     return (
         <div className={"dialog"}>
-            <JobCreateModule onClose={props.onClose}/>
+            <JobCreateModule onClose={props.onClose} editMode={props.editMode}/>
         </div>
     )
 }

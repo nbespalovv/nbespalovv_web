@@ -18,6 +18,11 @@ const JobList = (props) => {
         window.dispatchEvent(new Event("storage"))
     }
 
+    const editJob = (jobId) => {
+        let job = fullJobs[jobId]
+        props.onEditClick(job, jobId)
+    }
+
     useEffect(() => {
         window.addEventListener("storage", () => {
             setJobs(JSON.parse(window.localStorage.getItem("jobs")))
@@ -30,7 +35,7 @@ const JobList = (props) => {
         <div className={"job-list"}>
             <div className={"job-list-inner"}>
                 {jobs.map((item, i) => {
-                    return (<JobItem className={`job-item-list-${i}`} state={item.category.name} color={item.category.color} onDeleteJob={() => deleteJob(i)}>
+                    return (<JobItem className={`job-item-list-${i}`} state={item.category.name} color={item.category.color} onDeleteJob={() => deleteJob(i)} onEditJob={() => editJob(i)}>
                         {item.description}
                     </JobItem>)
                 })}
